@@ -7,12 +7,18 @@ Show the score on the screen
 
 Show a clock on the screen
 
+Show a message for Winning side
+
+Allow custom match length and day time
+
+Allow spectators
 */
 
 // [this] call dingus_fnc_GoalTrigger_East;
 dingus_fnc_GoalTrigger_East = {
   params ["_list"];
-  [_list, EAST] call dingus_fnc_GoalTriggerHandler;
+  // Hack - we have to use independent so civilians don't flee
+  [_list, independent] call dingus_fnc_GoalTriggerHandler;
 };
 
 // [this] call dingus_fnc_GoalTrigger_West;
@@ -38,7 +44,12 @@ dingus_fnc_GoalTriggerHandler = {
         hint format ['Goal - %1!', _side];
 
         if (!isNil "_unit") then {
-          _unit addScore 1;  
+          // if ((format ["%1", side _unit]) == format ["%1" _side]) then {
+          if (side _unit isEqualTo _side) then {
+            _unit addScore 1;
+          } else {
+            _unit addScore -1;
+          };
         } else {
           // systemChat "Couldnt get unit for score!.";
         };
@@ -52,11 +63,14 @@ dingus_fnc_GoalTriggerHandler = {
         };
 
         // Spawn a task to respawn the ball
-        ["m_midfieldMarker"] spawn {
+        /*["m_midfieldMarker"] spawn {
           params ["_marker"];
-          sleep 8;
+          
+          // Wait for 20 first
+          sleep 20;
+
           [_marker] call dingus_fnc_initializeBall;
-        };
+        };*/
 
         _return = true;
       };
@@ -78,7 +92,7 @@ dingus_fnc_PlayFieldTrigger = {
     {
       // systemChat format ["%1", _x];
       if (_x isEqualTo Soccerball) then {
-        systemChat 'OUT OF BOUNDS!!!';
+        // systemChat 'OUT OF BOUNDS!!!';
         _return = true;
       };
     } forEach _list;

@@ -1,3 +1,40 @@
+#define CT_STATIC 0
+#define ST_LEFT  0x00
+
+class RscTitles 
+{ 
+  class RscText 
+  {
+      type = CT_STATIC;
+      idc = -1;
+      style = ST_LEFT;
+      colorBackground[] = {0, 0, 0, 1};
+      colorText[] = {1, 1, 1, 1};
+      font = PuristaBold;
+      sizeEx = 0.04;
+      h = 0.04;
+      text = "";
+  };
+  class  AUSMD_Timer   
+  {
+    idd = 10000; 
+           onload ="uiNamespace setVariable [""AUSMD_Timer"", _this select 0];"; 
+           duration = 10000000; 
+    class Controls 
+    {
+      class timer_text: RscText
+      {
+        idc = -1;
+        colorBackground[] = {0,0,0,0};
+        x = 0.434375 * safezoneW + safezoneX;
+        y = 0.164 * safezoneH + safezoneY;
+        w = 0.124687 * safezoneW;
+        h = 0.042 * safezoneH;
+      };
+    };
+  };
+};
+
 class CfgSounds
 {
   class Kick1
@@ -18,4 +55,4 @@ class CfgSounds
     sound[] = {"sounds\cheer1.ogg", 1, 1, 100};
     titles[] = {0, ""};
   };
-}
+};

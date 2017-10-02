@@ -69,6 +69,26 @@ dingus_fnc_initializeBall = {
 				// sleep 0.01; original - but has a double kick issue
 				sleep 0.05;
 			};
+
+			// Hack? If the ball dies, spawn a new one
+			if (!alive Soccerball) then {
+				[_m] spawn {
+          params ["_marker"];
+          
+          // Wait for 20 first
+          sleep 17;
+
+          // play the thingy?
+          // alarm_independent
+          // [[markerPos _marker, "beep_target"], "PlaySoundEverywhere"] call BIS_fnc_MP;
+          systemChat "Get ready! Kick off in 3...2...1";
+          missionNamespace setVariable ["BallSpawn", "0"];
+
+          sleep 2;
+          
+          [_marker] call dingus_fnc_initializeBall;
+        };
+			};
 		};
 	};
 };
