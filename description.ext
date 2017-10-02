@@ -1,0 +1,21 @@
+class CfgSounds
+{
+  class Kick1
+  {
+    name = "Kick 1";
+    sound[] = {"sounds\kick1.ogg", 1, 1, 100};
+    titles[] = {0, ""};
+  };
+  class Kick2
+  {
+    name = "Kick 2";
+    sound[] = {"sounds\kick2.ogg", 1, 1, 100};
+    titles[] = {0, ""};
+  };
+  class Cheer1
+  {
+    name = "Cheer 1";
+    sound[] = {"sounds\cheer1.ogg", 1, 1, 100};
+    titles[] = {0, ""};
+  };
+}
