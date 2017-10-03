@@ -11,8 +11,8 @@
   {
     _home = missionNamespace getVariable ["Score_Home", 0];
     _visitor = missionNamespace getVariable ["Score_Visitor", 0];
-    _textBar ctrlsetText (format["%1",[_timer,"HH:MM:SS",false] call BIS_fnc_secondstoString]);
-    _scoreBoard ctrlsetText (format["%1 - %2", _visitor, _home]);
+    _textBar ctrlsetText (format["Remaining: %1",[_timer,"HH:MM:SS",false] call BIS_fnc_secondstoString]);
+    _scoreBoard ctrlsetText (format["%1 - %2", _home, _visitor]);
     _timer = _timer - 1;
     uiSleep 1;
   };

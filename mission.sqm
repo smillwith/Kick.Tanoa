@@ -5,7 +5,7 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=1025;
+	toggles=1;
 	class ItemIDProvider
 	{
 		nextID=178;
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={8124.5659,53.080971,9435.96};
-		dir[]={0.44586694,-0.87727052,-0.17818104};
-		up[]={0.81464636,0.47995153,-0.32555473};
-		aside[]={-0.37112203,1.2945384e-006,-0.92866355};
+		pos[]={8174.4341,39.542656,9486.2969};
+		dir[]={-0.88644582,-0.42559206,-0.18199715};
+		up[]={-0.41692498,0.9049024,-0.085597396};
+		aside[]={-0.20111905,-1.2693927e-006,0.97958803};
 	};
 };
 binarizationWanted=0;
@@ -152,8 +152,8 @@ randomSeed=10296036;
 class ScenarioData
 {
 	author="$(dingus)";
-	overviewText="Play some soccer on Tanoa.";
-	overViewPicture="44875654723.jpg";
+	overviewText="Approach the ball while moving to kick. Hold CTRL to punt.";
+	overViewPicture="44875654725.jpg";
 	briefing=0;
 	saving=0;
 	disabledAI=1;
@@ -172,6 +172,25 @@ class CustomAttributes
 	{
 		name="Multiplayer";
 		class Attribute0
+		{
+			property="RespawnButton";
+			expression="true";
+			class Value
+			{
+				class data
+				{
+					class type
+					{
+						type[]=
+						{
+							"SCALAR"
+						};
+					};
+					value=0;
+				};
+			};
+		};
+		class Attribute1
 		{
 			property="RespawnTemplates";
 			expression="true";
@@ -207,7 +226,7 @@ class CustomAttributes
 				};
 			};
 		};
-		nAttributes=1;
+		nAttributes=2;
 	};
 };
 class Mission
@@ -216,7 +235,7 @@ class Mission
 	class Intel
 	{
 		briefingName="Kick! Tanoa";
-		overviewText="Play a game of Soccer in Arma";
+		overviewText="Play a game of Soccer in Arma.";
 		resistanceEast=1;
 		timeOfChanges=1800.0002;
 		startWeather=0.12060782;
@@ -251,7 +270,7 @@ class Mission
 		{
 			dataType="Trigger";
 			position[]={8141.7749,19.374001,9503.9863};
-			angle=3.7534175;
+			angle=3.7534151;
 			class Attributes
 			{
 				name="tGoalWest";
@@ -264,6 +283,7 @@ class Mission
 				activationBy="ANY";
 				isRectangle=1;
 				isServerOnly=1;
+				effectSound="Whistle";
 			};
 			id=15;
 			type="EmptyDetector";
@@ -603,7 +623,7 @@ class Mission
 		{
 			dataType="Trigger";
 			position[]={8090.8208,19.374001,9427.5};
-			angle=0.59009576;
+			angle=0.59009558;
 			class Attributes
 			{
 				name="tGoalEast";
@@ -616,6 +636,7 @@ class Mission
 				activationBy="ANY";
 				isRectangle=1;
 				isServerOnly=1;
+				effectSound="Whistle";
 			};
 			id=49;
 			type="EmptyDetector";
@@ -1167,13 +1188,14 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={8116.7227,18.371439,9444.9199};
-						angles[]={0,0.65807939,0};
+						position[]={8101.6729,18.371439,9437.376};
+						angles[]={0,0.60195005,0};
 					};
 					side="West";
 					flags=7;
 					class Attributes
 					{
+						description="Center Back West";
 						isPlayable=1;
 						class Inventory
 						{
@@ -1242,13 +1264,14 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={8119.2295,18.371439,9455.0723};
-						angles[]={0,0.65807939,0};
+						position[]={8121.0127,18.371439,9452.4297};
+						angles[]={0,0.65807641,0};
 					};
 					side="West";
 					flags=7;
 					class Attributes
 					{
+						description="Forward West";
 						isPlayable=1;
 						class Inventory
 						{
@@ -1317,13 +1340,14 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={8116.2129,18.371439,9461.373};
-						angles[]={0,0.65807939,0};
+						position[]={8092.4727,18.371439,9430.3652};
+						angles[]={0,0.6036799,0};
 					};
 					side="West";
 					flags=7;
 					class Attributes
 					{
+						description="Goalie West";
 						isPlayable=1;
 						class Inventory
 						{
@@ -1392,13 +1416,14 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={8112.8359,18.371439,9463.6152};
-						angles[]={0,0.65807724,0};
+						position[]={8113.1357,18.371439,9460.0742};
+						angles[]={0,0.65807641,0};
 					};
 					side="West";
 					flags=7;
 					class Attributes
 					{
+						description="Forward West";
 						isPlayer=1;
 						isPlayable=1;
 						class Inventory
@@ -1468,13 +1493,14 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={8103.5811,18.371439,9464.7178};
-						angles[]={0,0.65807939,0};
+						position[]={8100.3677,18.371439,9460.5156};
+						angles[]={0,0.65807641,0};
 					};
 					side="West";
 					flags=7;
 					class Attributes
 					{
+						description="Midfielder West";
 						isPlayable=1;
 						class Inventory
 						{
@@ -1543,13 +1569,14 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={8094.0981,18.371439,9460.8799};
-						angles[]={0,0.65807939,0};
+						position[]={8091.9082,18.371439,9452.3193};
+						angles[]={0,0.65807641,0};
 					};
 					side="West";
 					flags=7;
 					class Attributes
 					{
+						description="Full Back West";
 						isPlayable=1;
 						class Inventory
 						{
@@ -1611,8 +1638,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={8086.7241,19.037258,9406.3193};
-				angles[]={6.1663866,0.55874968,0.085126832};
+				position[]={8089.0762,19.041132,9404.4189};
+				angles[]={6.2086577,0.55874968,0.10362703};
 			};
 			side="Empty";
 			flags=4;
@@ -1622,15 +1649,15 @@ class Mission
 			};
 			id=118;
 			type="C_Hatchback_01_F";
-			atlOffset=-8.9645386e-005;
+			atlOffset=-0.0012321472;
 		};
 		class Item51
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={8082.4941,19.128712,9409.2461};
-				angles[]={6.200706,0.59768796,0.098347999};
+				position[]={8082.4941,19.128633,9409.2461};
+				angles[]={6.2007008,0.59768796,0.098349303};
 			};
 			side="Empty";
 			flags=4;
@@ -1640,15 +1667,14 @@ class Mission
 			};
 			id=121;
 			type="C_Offroad_01_F";
-			atlOffset=7.8201294e-005;
 		};
 		class Item52
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={8090.7271,19.255751,9403.3936};
-				angles[]={6.2086577,0.54059827,0.10362703};
+				position[]={8084.9722,17.942818,9396.0381};
+				angles[]={6.256525,3.7168908,0.013332055};
 			};
 			side="Empty";
 			flags=4;
@@ -1658,7 +1684,7 @@ class Mission
 			};
 			id=124;
 			type="C_Offroad_02_unarmed_F";
-			atlOffset=-0.0024337769;
+			atlOffset=-0.0073547363;
 		};
 		class Item53
 		{
@@ -2022,13 +2048,14 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={8119.625,18.371439,9466.208};
-						angles[]={0,3.7693415,0};
+						position[]={8140.4463,18.371439,9501.6357};
+						angles[]={0,3.769335,0};
 					};
 					side="Independent";
 					flags=7;
 					class Attributes
 					{
+						description="Goalie East";
 						isPlayable=1;
 						class Inventory
 						{
@@ -2102,13 +2129,14 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={8116.2646,18.371439,9469.084};
-						angles[]={0,3.7197843,0};
+						position[]={8119.4009,18.371439,9469.4678};
+						angles[]={0,3.7197855,0};
 					};
 					side="Independent";
 					flags=7;
 					class Attributes
 					{
+						description="Forward East";
 						isPlayable=1;
 						class Inventory
 						{
@@ -2182,13 +2210,14 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={8127.0728,18.371439,9465.9277};
-						angles[]={0,3.5957339,0};
+						position[]={8133.7329,18.371439,9466.4609};
+						angles[]={0,3.5957274,0};
 					};
 					side="Independent";
 					flags=7;
 					class Attributes
 					{
+						description="Midfielder East";
 						isPlayable=1;
 						class Inventory
 						{
@@ -2262,13 +2291,14 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={8111.9282,18.371439,9475.6895};
-						angles[]={0,3.7672038,0};
+						position[]={8112.0161,18.371439,9474.8721};
+						angles[]={0,3.767206,0};
 					};
 					side="Independent";
 					flags=7;
 					class Attributes
 					{
+						description="Forward East";
 						isPlayable=1;
 						class Inventory
 						{
@@ -2342,13 +2372,14 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={8135.2534,18.371439,9468.6523};
-						angles[]={0,3.6682751,0};
+						position[]={8141.9668,18.371439,9478.2734};
+						angles[]={0,3.6682806,0};
 					};
 					side="Independent";
 					flags=7;
 					class Attributes
 					{
+						description="Full Back East";
 						isPlayable=1;
 						class Inventory
 						{
@@ -2422,13 +2453,14 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={8111.937,18.371439,9484.4053};
-						angles[]={0,3.7755084,0};
+						position[]={8130.5024,18.371439,9498.3027};
+						angles[]={0,3.7755136,0};
 					};
 					side="Independent";
 					flags=7;
 					class Attributes
 					{
+						description="Center Back East";
 						isPlayable=1;
 						class Inventory
 						{

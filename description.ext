@@ -10,8 +10,8 @@ class Params
   class darkness
   {
     title = "Darkness Level: ";
-      texts[] = { "Dawn", "Morning (Default)", "Afternoon", "Evening", "Dusk", "Night" };
-      values[] = {-4, 0, 4, 6, 9, 14};
+      texts[] = { "Dawn", "Morning (Default)", "Afternoon", "Dusk", "Night" };
+      values[] = {-3.5, 0, 4, 7, 14};
       default = 0;
   };
 };
@@ -27,7 +27,7 @@ class RscTitles
       idc = -1;
       style = ST_LEFT;
       colorBackground[] = {0, 0, 0, 1};
-      colorText[] = {1, 1, 1, 1};
+      colorText[] = {1, 1, 1, 0.85};
       font = PuristaBold;
       sizeEx = 0.04;
       h = 0.04;
@@ -39,7 +39,7 @@ class RscTitles
       idc = -1;
       style = ST_LEFT;
       colorBackground[] = {0, 0, 0, 1};
-      colorText[] = {0, 0, 1, 0.8};
+      colorText[] = {0.102, 0.1960, 0.498, 1};
       font = PuristaBold;
       sizeEx = 0.035;
       h = 0.04;
@@ -50,8 +50,8 @@ class RscTitles
       type = CT_STATIC;
       idc = -1;
       style = ST_LEFT;
-      colorBackground[] = {0, 0, 0, 1};
-      colorText[] = {1, 0.2, 0, .8};
+      colorBackground[] = {0, 0, 0, 0};
+      colorText[] = {0.498, 0.141, 0, 1};
       font = PuristaBold;
       sizeEx = 0.035;
       h = 0.04;
@@ -62,7 +62,7 @@ class RscTitles
       type = CT_STATIC;
       idc = -1;
       style = ST_LEFT;
-      colorBackground[] = {0, 0, 0, 1};
+      colorBackground[] = {0, 0, 0, 0};
       colorText[] = {1, 1, 1, 1};
       font = PuristaBold;
       sizeEx = 0.2;
@@ -79,40 +79,40 @@ class RscTitles
       class timer_text: RscText
       {
         idc = 40018;
-        colorBackground[] = {0,0,0,0};
-        x = 0.48 * safezoneW + safezoneX;
-        y = 0.1 * safezoneH + safezoneY;
-        w = 0.124687 * safezoneW;
+        colorBackground[] = {0, 0, 0, 0};
+        x = 0.459 * safezoneW + safezoneX;
+        y = 0.130 * safezoneH + safezoneY;
+        w = 0.120 * safezoneW;
         h = 0.042 * safezoneH;
       };
       class scoreboard: RscTextBoard
       {
         idc = 40019;
-        colorBackground[] = {0,0,0,0};
-        x = 0.46 * safezoneW + safezoneX;
-        y = 0.05 * safezoneH + safezoneY;
-        w = 0.124687 * safezoneW;
-        h = 0.06 * safezoneH;
+        colorBackground[] = {0, 0, 0, 0};
+        x = 0.459 * safezoneW + safezoneX;
+        y = 0.050 * safezoneH + safezoneY;
+        w = 0.120 * safezoneW;
+        h = 0.060 * safezoneH;
       };
       class scoreboardHome: RscTextRed
       {
         idc = 40020;
         colorBackground[] = {0,0,0,0};
-        x = 0.46 * safezoneW + safezoneX;
-        y = 0.1 * safezoneH + safezoneY;
-        w = 0.1 * safezoneW;
+        x = 0.466 * safezoneW + safezoneX;
+        y = 0.100 * safezoneH + safezoneY;
+        w = 0.100 * safezoneW;
         h = 0.042 * safezoneH;
-        text = "East"
+        text = "RED"
       };
       class scoreboardVisitor: RscTextBlue
       {
         idc = 40021;
         colorBackground[] = {0,0,0,0};
-        x = 0.52 * safezoneW + safezoneX;
-        y = 0.1 * safezoneH + safezoneY;
-        w = 0.1 * safezoneW;
+        x = 0.517 * safezoneW + safezoneX;
+        y = 0.100 * safezoneH + safezoneY;
+        w = 0.100 * safezoneW;
         h = 0.042 * safezoneH;
-        text = "West"
+        text = "BLUE"
       };
     };
   };
@@ -122,14 +122,26 @@ class CfgSounds
 {
   class Kick1
   {
-    name = "Kick 1";
+    name = "Ball Kick 1";
     sound[] = {"sounds\kick1.ogg", 1, 1, 100};
     titles[] = {0, ""};
   };
   class Kick2
   {
-    name = "Kick 2";
+    name = "Ball Kick 1 alt";
     sound[] = {"sounds\kick2.ogg", 1, 1, 100};
+    titles[] = {0, ""};
+  };
+  class Kick3
+  {
+    name = "Ball Kick 3";
+    sound[] = {"sounds\kick3.ogg", 1, 1, 100};
+    titles[] = {0, ""};
+  };
+  class Whistle
+  {
+    name = "Sports Whistle";
+    sound[] = {"sounds\whistle.ogg", .25, 1, 100};
     titles[] = {0, ""};
   };
   class Cheer1
