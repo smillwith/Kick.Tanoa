@@ -1,17 +1,22 @@
 /*
 Attach the ball to the ref? 
-
-How do we trigger the next ball drop?
-
-Show the score on the screen
-
-Show a clock on the screen
-
 Show a message for Winning side
-
 Allow custom match length and day time
-
 Allow spectators
+
+Fix the ball drop
+ - Make it so we have a warm up time
+ - Add a sign or other thing to indicate kick off
+ - 
+
+Update score
+Implement the Win and Lose scenarios
+Add score labels
+Add score colors (blue and green?)
+
+Fix out of bounds?
+ - play a sound and lock the ball?
+ - implement a fence?
 */
 
 // [this] call dingus_fnc_GoalTrigger_East;
@@ -41,14 +46,14 @@ dingus_fnc_GoalTriggerHandler = {
       // systemChat format ["%1", _x];
       if (_x isEqualTo Soccerball) then {
         // systemChat format ['Goal - %1!', _side];
-        hint format ['Goal - %1!', _side];
+        // hint format ['Goal - %1!', _side];
 
         if (!isNil "_unit") then {
-          // if ((format ["%1", side _unit]) == format ["%1" _side]) then {
           if (side _unit isEqualTo _side) then {
             _unit addScore 1;
+            _return = true;
           } else {
-            _unit addScore -1;
+            hint 'Wrong goal!';
           };
         } else {
           // systemChat "Couldnt get unit for score!.";
@@ -72,13 +77,30 @@ dingus_fnc_GoalTriggerHandler = {
           [_marker] call dingus_fnc_initializeBall;
         };*/
 
-        _return = true;
+        // _return = true;
       };
     } forEach _list;
   };
 
   _return;
 };
+
+dingus_fnc_HomeScored = {
+  _homeScore = missionNamespace getVariable ["Score_Home", 0];
+  _visitorScore = missionNamespace getVariable ["Score_Visitor", 0];
+  _homeScore = _homeScore + 1;
+  hint 'Goal - EAST!';
+  [_visitorScore, _homeScore] call dingus_fnc_UpdateScore;
+};
+
+dingus_fnc_VisitorScored = {
+  _homeScore = missionNamespace getVariable ["Score_Home", 0];
+  _visitorScore = missionNamespace getVariable ["Score_Visitor", 0];
+  _visitorScore = _visitorScore + 1;
+  hint 'Goal - WEST!';
+  [_visitorScore, _homeScore] call dingus_fnc_UpdateScore;
+};
+
 
 // [thisList] call dingus_fnc_PlayFieldTrigger;
 dingus_fnc_PlayFieldTrigger = {
@@ -99,4 +121,54 @@ dingus_fnc_PlayFieldTrigger = {
   };
 
   _return;
+};
+
+// [_visitor, _home] call dingus_fnc_UpdateScore;
+dingus_fnc_UpdateScore = {
+  params ["_visitor", "_home"];
+  missionNamespace setVariable ["Score_Home", _home];
+  missionNamespace setVariable ["Score_Visitor", _visitor];
+};
+
+// missionNamespace getVariable ["MatchEnded", 0] == 1 && ;
+// [] call dingus_fnc_YouLose;
+dingus_fnc_YouLose = {
+  _ret = false;
+
+  _ended = missionNamespace getVariable ["MatchEnded", 0] == 1;
+  _homeScore = missionNamespace getVariable ["Score_Home", 0];
+  _visitorScore = missionNamespace getVariable ["Score_Visitor", 0];
+
+  if (_ended) then {
+    if (_homeScore <= _visitorScore && side player == independent) then {
+      _ret = true;
+    };
+
+    if (_visitorScore <= _homeScore && side player == WEST) then {
+      _ret = true;
+    };
+  };
+
+  _ret;
+};
+
+// [] call dingus_fnc_YouWin;
+dingus_fnc_YouWin = {
+  _ret = false;
+
+  _ended = missionNamespace getVariable ["MatchEnded", 0] == 1;
+  _homeScore = missionNamespace getVariable ["Score_Home", 0];
+  _visitorScore = missionNamespace getVariable ["Score_Visitor", 0];
+
+  if (_ended) then {
+    if (_homeScore > _visitorScore && (side player isEqualTo independent)) then {
+      _ret = true;
+    };
+
+    if (_visitorScore > _homeScore && (side player isEqualTo WEST)) then {
+      _ret = true;
+    };
+  };
+
+  _ret;
 };

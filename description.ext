@@ -1,3 +1,21 @@
+class Header
+{
+  gameType = Sandbox; // Game type - Unknown, Coop, DM, TDM, CTF, RPG, Sandbox, Seize, SC, Defend
+  minPlayers = 1; //min # of players the mission supports
+  maxPlayers = 12; //max # of players the mission supports
+};
+
+class Params
+{
+  class darkness
+  {
+    title = "Darkness Level: ";
+      texts[] = { "Dawn", "Morning (Default)", "Afternoon", "Evening", "Dusk", "Night" };
+      values[] = {-4, 0, 4, 6, 9, 14};
+      default = 0;
+  };
+};
+
 #define CT_STATIC 0
 #define ST_LEFT  0x00
 
@@ -15,21 +33,86 @@ class RscTitles
       h = 0.04;
       text = "";
   };
+  class RscTextBlue
+  {
+      type = CT_STATIC;
+      idc = -1;
+      style = ST_LEFT;
+      colorBackground[] = {0, 0, 0, 1};
+      colorText[] = {0, 0, 1, 0.8};
+      font = PuristaBold;
+      sizeEx = 0.035;
+      h = 0.04;
+      text = "";
+  };
+  class RscTextRed
+  {
+      type = CT_STATIC;
+      idc = -1;
+      style = ST_LEFT;
+      colorBackground[] = {0, 0, 0, 1};
+      colorText[] = {1, 0.2, 0, .8};
+      font = PuristaBold;
+      sizeEx = 0.035;
+      h = 0.04;
+      text = "";
+  };
+  class RscTextBoard
+  {
+      type = CT_STATIC;
+      idc = -1;
+      style = ST_LEFT;
+      colorBackground[] = {0, 0, 0, 1};
+      colorText[] = {1, 1, 1, 1};
+      font = PuristaBold;
+      sizeEx = 0.2;
+      h = 0.1;
+      text = "";
+  };
   class  AUSMD_Timer   
   {
-    idd = 10000; 
-           onload ="uiNamespace setVariable [""AUSMD_Timer"", _this select 0];"; 
-           duration = 10000000; 
-    class Controls 
+    idd = 10000;
+    onload ="uiNamespace setVariable [""AUSMD_Timer"", _this select 0];"; 
+    duration = 10000000; 
+    class Controls
     {
       class timer_text: RscText
       {
-        idc = -1;
+        idc = 40018;
         colorBackground[] = {0,0,0,0};
-        x = 0.434375 * safezoneW + safezoneX;
-        y = 0.164 * safezoneH + safezoneY;
+        x = 0.48 * safezoneW + safezoneX;
+        y = 0.1 * safezoneH + safezoneY;
         w = 0.124687 * safezoneW;
         h = 0.042 * safezoneH;
+      };
+      class scoreboard: RscTextBoard
+      {
+        idc = 40019;
+        colorBackground[] = {0,0,0,0};
+        x = 0.46 * safezoneW + safezoneX;
+        y = 0.05 * safezoneH + safezoneY;
+        w = 0.124687 * safezoneW;
+        h = 0.06 * safezoneH;
+      };
+      class scoreboardHome: RscTextRed
+      {
+        idc = 40020;
+        colorBackground[] = {0,0,0,0};
+        x = 0.46 * safezoneW + safezoneX;
+        y = 0.1 * safezoneH + safezoneY;
+        w = 0.1 * safezoneW;
+        h = 0.042 * safezoneH;
+        text = "East"
+      };
+      class scoreboardVisitor: RscTextBlue
+      {
+        idc = 40021;
+        colorBackground[] = {0,0,0,0};
+        x = 0.52 * safezoneW + safezoneX;
+        y = 0.1 * safezoneH + safezoneY;
+        w = 0.1 * safezoneW;
+        h = 0.042 * safezoneH;
+        text = "West"
       };
     };
   };
