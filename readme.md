@@ -1,4 +1,4 @@
-Kick! Tanoa
+## Kick! Tanoa
 
 Sandbox: 1 to 12 players
 
@@ -14,3 +14,6 @@ Gameplay:
 
 
 This is beta and there could be issues.
+
+**Credit for the awesome Soccer Ball script:** [Genesis92x via Armaholic](http://www.armaholic.com/page.php?id=29245)
+
