@@ -46,7 +46,7 @@ dingus_fnc_GoalTriggerHandler = {
             // _unit addScore 1;
             _return = true;
           } else {
-            hint 'Wrong goal!';
+            // hint 'Wrong goal!';
           };
         } else {
           // systemChat "Couldnt get unit for score!.";
@@ -71,6 +71,8 @@ dingus_fnc_HomeScored = {
   _homeScore = _homeScore + 1;
   // hint 'Goal - RED!';
   [_visitorScore, _homeScore] call dingus_fnc_UpdateScore;
+  [[homefan, "Cheer1"],"PlaySoundEverywhere"] call BIS_fnc_MP;
+  [[tGoalEast, "Whistle"],"PlaySoundEverywhere"] call BIS_fnc_MP;
 };
 
 dingus_fnc_VisitorScored = {
@@ -79,6 +81,8 @@ dingus_fnc_VisitorScored = {
   _visitorScore = _visitorScore + 1;
   // hint 'Goal - BLUE!';
   [_visitorScore, _homeScore] call dingus_fnc_UpdateScore;
+  [[awayfan, "Cheer1"],"PlaySoundEverywhere"] call BIS_fnc_MP;
+  [[tGoalWest, "Whistle"],"PlaySoundEverywhere"] call BIS_fnc_MP;
 };
 
 
@@ -106,8 +110,8 @@ dingus_fnc_PlayFieldTrigger = {
 // [_visitor, _home] call dingus_fnc_UpdateScore;
 dingus_fnc_UpdateScore = {
   params ["_visitor", "_home"];
-  missionNamespace setVariable ["Score_Home", _home];
-  missionNamespace setVariable ["Score_Visitor", _visitor];
+  missionNamespace setVariable ["Score_Home", _home, true];
+  missionNamespace setVariable ["Score_Visitor", _visitor, true];
 };
 
 // [] call dingus_fnc_YouLose;

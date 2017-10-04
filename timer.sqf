@@ -17,5 +17,5 @@
     uiSleep 1;
   };
 
-  missionNamespace setVariable ["MatchEnded", 1];
+  missionNamespace setVariable ["MatchEnded", 1, true];
 };

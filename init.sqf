@@ -29,6 +29,6 @@ BALL_VEHICLE_TYPE = "Land_Football_01_F";
 _hoursToskip = ["darkness", -1] call BIS_fnc_getParamValue;
 skiptime _hoursToskip;
 
-missionNamespace setVariable ["MatchEnded", 0];
-missionNamespace setVariable ["Score_Home", 0];
-missionNamespace setVariable ["Score_Visitor", 0];
+missionNamespace setVariable ["MatchEnded", 0, true];
+missionNamespace setVariable ["Score_Home", 0, true];
+missionNamespace setVariable ["Score_Visitor", 0, true];

@@ -1,9 +1,12 @@
 // Credit: Genesis92x via Armaholic
 // Source: http://www.armaholic.com/page.php?id=29245
-// Date: Oct-1-2017 (heavily modified)
+// Retrieved Date: Oct-1-2017 (heavily modified)
 
 PlaySoundEverywhere = compileFinal "_this select 0 say3D (_this select 1);";
+SystemChatEverywhere = compileFinal "systemChat (_this select 0);";
+
 player setvariable ["Soccer_Hit",false,true];
+
 MY_KEYDOWN_FNCDCGETIN = {
     switch (_this) do {
         case 29: 
@@ -45,7 +48,8 @@ dingus_fnc_initializeBall = {
 				{
 					[[SoccerBall, _snds select floor random count _snds],"PlaySoundEverywhere"] call BIS_fnc_MP;
 
-					missionNamespace setVariable ["LastTouchedUnit", _Closestplayer];
+					// For score tracking
+					missionNamespace setVariable ["LastTouchedUnit", _Closestplayer, true];
 
 					_GetVelocity = velocity _Closestplayer;
 					_playervelocityX = _GetVelocity select 0;
@@ -70,8 +74,9 @@ dingus_fnc_initializeBall = {
           params ["_marker"];
           // Wait for a bit first
           sleep (BALL_SPAWN_TIMEOUT - 3);
-          systemChat "Get ready! Kick off in 3...2...1";
-          missionNamespace setVariable ["BallSpawn", "0"];
+          // systemChat "Get ready! Kick off in 3...2...1";
+          [['Get ready! Kick off in 3...2...1'],"SystemChatEverywhere"] call BIS_fnc_MP;
+          missionNamespace setVariable ["BallSpawn", "0", true];
           sleep 3;
           [_marker] call dingus_fnc_initializeBall;
         };
