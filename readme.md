@@ -1,5 +1,7 @@
 ## Kick! Tanoa
 
+![Kick! Tanoa](https://github.com/smillwith/Kick.Tanoa/raw/master/44875654725.jpg)
+
 Sandbox: 1 to 12 players
 
 A multiplayer soccer (football) scenario on Tanoa.
@@ -14,6 +16,12 @@ Gameplay:
 
 
 This is beta and there could be issues.
+
+-----
+
+[Download the PBO directly](https://github.com/smillwith/Kick.Tanoa/raw/master/pbo/Kick.Tanoa.pbo)
+
+-----
 
 **Credit for the awesome Soccer Ball script:** [Genesis92x via Armaholic](http://www.armaholic.com/page.php?id=29245)
 
