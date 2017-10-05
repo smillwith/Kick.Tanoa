@@ -173,6 +173,25 @@ class CustomAttributes
 		name="Multiplayer";
 		class Attribute0
 		{
+			property="RespawnButton";
+			expression="true";
+			class Value
+			{
+				class data
+				{
+					class type
+					{
+						type[]=
+						{
+							"SCALAR"
+						};
+					};
+					value=0;
+				};
+			};
+		};
+		class Attribute1
+		{
 			property="RespawnTemplates";
 			expression="true";
 			class Value
@@ -204,25 +223,6 @@ class CustomAttributes
 							};
 						};
 					};
-				};
-			};
-		};
-		class Attribute1
-		{
-			property="RespawnButton";
-			expression="true";
-			class Value
-			{
-				class data
-				{
-					class type
-					{
-						type[]=
-						{
-							"SCALAR"
-						};
-					};
-					value=0;
 				};
 			};
 		};
@@ -294,7 +294,7 @@ class Mission
 		{
 			dataType="Trigger";
 			position[]={8141.7749,19.374001,9503.9863};
-			angle=3.7534175;
+			angle=3.7534168;
 			class Attributes
 			{
 				name="tGoalWest";
@@ -645,7 +645,7 @@ class Mission
 		{
 			dataType="Trigger";
 			position[]={8090.8208,19.374001,9427.5};
-			angle=0.59009576;
+			angle=0.59009564;
 			class Attributes
 			{
 				name="tGoalEast";
